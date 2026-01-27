@@ -34,7 +34,7 @@
   };
 
   i18n.inputMethod.fcitx5.settings.addons = {
-    classicui.globalSection.Theme = "catppuccin-mocha-mauve";
+    classicui.globalSection.Theme = "catppuccin-latte-mauve";
   };
 }
 
