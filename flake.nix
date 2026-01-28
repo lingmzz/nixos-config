@@ -13,9 +13,19 @@
   };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
-    catppuccin.url = "github:catppuccin/nix/release-25.11";
+
+    stylix = {
+      url = "github:nix-community/stylix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -23,27 +33,39 @@
   outputs = {
     self,
     nixpkgs,
-    catppuccin,
     home-manager,
+    stylix,
+    niri,
     ...
-  }: { 
+  }@inputs: 
+  let 
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    username = "min";
+  in { 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
+      specialArgs = { inherit inputs username; };
       modules = [
-        ./configuration.nix
-        catppuccin.nixosModules.catppuccin
+        # Stylix NixOS 模块
+        stylix.nixosModules.stylix
+
+        # Nixos 系统模块
+        ./hosts
+
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit catppuccin; };
-          home-manager.users.min = {
+          home-manager.extraSpecialArgs = { inherit inputs username; };
+          home-manager.users.${username} = {
             imports = [
-              ./modules/home.nix
-              #catppuccin.homeModules.catppuccin
+              ./home/home.nix
             ];
           };
         }
+
+        niri.nixosModules.niri
       ];
     };
   };
