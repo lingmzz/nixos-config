@@ -48,7 +48,7 @@
   environment.sessionVariables = {
     EDITOR = "vim";
     VISUAL = "vim";
-    BROWSER = "firefox";  # 或您偏好的浏览器
+    BROWSER = "google-chrome";
   };
   
   # SSH 守护

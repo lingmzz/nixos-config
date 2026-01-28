@@ -24,10 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #niri = {
+    #  url = "github:sodiboo/niri-flake";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = {
@@ -35,7 +35,7 @@
     nixpkgs,
     home-manager,
     stylix,
-    niri,
+    #niri,
     ...
   }@inputs: 
   let 
@@ -52,7 +52,7 @@
 
         home-manager.nixosModules.home-manager
 
-        niri.nixosModules.niri
+        #niri.nixosModules.niri
 
         {
           home-manager.useGlobalPkgs = true;

@@ -52,14 +52,13 @@
       progressbar_elapsed_color = "blue";
       progressbar_color = "black";
     };
-    
     bindings = [
       { key = "j"; command = "scroll_down"; }
       { key = "k"; command = "scroll_up"; }
       { key = "h"; command = "previous_column"; }
       { key = "l"; command = "next_column"; }
-      { key = "g"; command = "page"; value = "1"; }
-      { key = "G"; command = "page"; value = "end"; }
+      { key = "g"; command = "page 1"; }
+      { key = "G"; command = "page end"; }
     ];
   };
 }

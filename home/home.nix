@@ -6,6 +6,7 @@
   home.stateVersion = "25.11";
   
   imports = [
+    ./dev.nix
     ./common.nix
     ./modules/niri
     ./modules/waybar

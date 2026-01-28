@@ -22,8 +22,6 @@
 
   # 网络工具
   environment.systemPackages = with pkgs; [
-    NetworkManager-tui  # nmtui（终端网络管理器）
-    dig                 # DNS 查询
   ];
 
   networking.proxy = {

@@ -35,7 +35,4 @@
   
   # Stylix 会自动配置 Yazi 主题（通过 flavor）
   stylix.targets.yazi.enable = true;
-  
-  # 关联 MPV（用于预览视频）
-  home.packages = [ pkgs.mpv ];
 }
