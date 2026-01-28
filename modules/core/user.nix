@@ -59,4 +59,6 @@
       PasswordAuthentication = true;  # 如使用密钥登录，改为 false
     };
   };
+
+  nixpkgs.config.allowUnfree = true;
 }

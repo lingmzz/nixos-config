@@ -3,9 +3,7 @@
 {
   # 共享配置
   home.packages = with pkgs; [
-    # 基础工具
-    #ripgrep
-    #fd
+    fd
     eza
     jq
     fzf
@@ -15,11 +13,13 @@
 
     imv
     mpv
+
+    zoxide
     
-    # Niri 相关工具
-    #wl-clipboard      # 剪贴板支持
-    #grimblast         # 截图工具
-    #libnotify         # 通知库
+    fuzzel
+    libnotify         # 通知库
+
+    git
   ];
 
   programs.fastfetch = {

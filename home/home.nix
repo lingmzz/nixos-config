@@ -16,6 +16,7 @@
     ./modules/vim
     ./modules/yazi
     ./modules/ncmpcpp
+    ./modules/fcitx5
   ];
   
   # Home Manager 自动管理自身
