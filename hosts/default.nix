@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./virtualization.nix
     ../modules/core
     ../modules/stylix      # 主题系统级配置
     ../modules/programs
