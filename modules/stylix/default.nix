@@ -41,9 +41,6 @@
       popups = 10;
     };
     
-    # 圆角和边框（影响 GTK、Waybar 等）
-    cornerRadius = 8;
-    
     # 透明度
     opacity = {
       applications = 1.0;

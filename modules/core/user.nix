@@ -29,9 +29,6 @@
   security.sudo = {
     enable = true;
     wheelNeedsPassword = true;      # true = 需要密码（安全）；false = 免密（风险）
-    
-    # 超时设置（分钟）
-    timestampTimeout = 30;
   };
 
   programs.fish.enable = true;

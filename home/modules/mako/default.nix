@@ -25,9 +25,6 @@
     
     # 行为
     layer = "overlay";
-    onNotification = "none";
-    
-    # 额外样式会被 Stylix 自动添加
   };
   
   # 确保目标启用

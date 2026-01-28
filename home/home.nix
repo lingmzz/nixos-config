@@ -6,11 +6,6 @@
   home.stateVersion = "25.11";
   
   imports = [
-    # Niri Home Manager 模块（提供 programs.niri.settings）
-    inputs.niri.homeModules.niri
-    # Niri 的 Stylix 集成模块
-    inputs.niri.homeModules.stylix
-    
     ./common.nix
     ./modules/niri
     ./modules/waybar

@@ -50,10 +50,10 @@
         # Stylix NixOS 模块
         stylix.nixosModules.stylix
 
-        # Nixos 系统模块
-        ./hosts
-
         home-manager.nixosModules.home-manager
+
+        niri.nixosModules.niri
+
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -65,7 +65,8 @@
           };
         }
 
-        niri.nixosModules.niri
+        # Nixos 系统模块
+        ./hosts
       ];
     };
   };

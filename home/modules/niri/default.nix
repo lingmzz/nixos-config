@@ -2,7 +2,7 @@
 
 {
   programs.niri = {
-    enable = true;
+    #enable = true;
     
     # 使用结构化配置（KDL 会自动生成）
     settings = {
@@ -15,9 +15,10 @@
       
       # 输出配置（根据显示器调整）
       outputs."HDMI-A-1" = {
-        mode = "2560x1440@60"
+        mode = "2560x1440@60";
         scale = 1.2;
-        # transform = "normal";
+        position.x = 0;
+        position.y = 0;
       };
       
       # 布局配置
@@ -102,10 +103,9 @@
         }
       ];
     };
-    
-    # 确保 Stylix 目标启用（通常 autoEnable 已处理）
-    stylix.targets.niri.enable = true;
   };
+
+  stylix.targets.niri.enable = true;
   
   # Niri 需要的服务
   #services.swayidle.enable = true;  # 锁屏/休眠（可选）

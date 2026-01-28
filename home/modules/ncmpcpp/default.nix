@@ -62,7 +62,4 @@
       { key = "G"; command = "page"; value = "end"; }
     ];
   };
-  
-  # Stylix 配置 ncmpcpp 颜色
-  stylix.targets.ncmpcpp.enable = true;
 }

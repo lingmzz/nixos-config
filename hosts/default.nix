@@ -11,7 +11,7 @@
   # 系统级基础配置
   system.stateVersion = "25.11";
 
-  # 启用 Niri（系统级 D-Bus 和政策套件支持）
+  # 启用 Niri
   programs.niri.enable = true;
 
 }
