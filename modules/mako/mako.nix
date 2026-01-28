@@ -6,6 +6,11 @@
     libnotify
   ];
 
+#  catppuccin.mako = {
+#    enable = true;
+#    accent = "mauve";
+#    flavor = "mocha";
+#  };
   xdg.configFile = {
     "mako/config" = {
       source = pkgs.writeText "mako-config" ''

@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  catppuccin,
   ...
 }: {
   home.username = "min";
@@ -13,6 +14,7 @@
   };
 
   imports = [
+    catppuccin.homeModules.catppuccin
     ./fcitx5/fcitx5.nix
     ./waybar/waybar.nix
     ./dev/dev.nix
@@ -92,12 +94,12 @@
     "text/html" = ["google-chrome.desktop"];
   };
 
-  # 光标配置
-  #home.pointerCursor = {
-  #  enable = true;
-  #  package = pkgs.adwaita-icon-theme;
-  #  name = "Adwaita";
-  #  size = 24;
-  #};
+  catppuccin = {
+    #enable = true;
+    cursors = {
+      enable = true;
+      flavor = "mocha";
+    };
+  };
 
 }

@@ -11,7 +11,7 @@
     fcitx5-rime
     qt6Packages.fcitx5-configtool
     qt6Packages.fcitx5-chinese-addons  # 拼音、五笔等
-    catppuccin-fcitx5
+#    catppuccin-fcitx5
   ];
 
   /*
@@ -34,7 +34,14 @@
   };
 
   i18n.inputMethod.fcitx5.settings.addons = {
-    classicui.globalSection.Theme = "catppuccin-latte-mauve";
+    classicui.globalSection.Theme = "catppuccin-mocha-mauve";
+  };
+  catppuccin.fcitx5 = {
+    enable = true;
+    flavor = "mocha";
+    accent = "mauve";
+    enableRounded = true;
+    apply = false;
   };
 }
 

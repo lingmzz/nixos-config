@@ -307,8 +307,7 @@ layer-rule {
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authertication-agent-1"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
-spawn-at-startup "/usr/bin/swww-daemon"
-spawn-at-startup "swww" "img" "~/.config/wallpaper/wallhaven-3q3wqv_2560x1440.png"
+spawn-sh-at-startup "swww-daemon && swww img ~/.config/wallpaper/wallhaven-3q3wqv_2560x1440.png"
 // spawn-sh-at-startup "swaybg -i ~/Pictures/arch.png -m fill"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

@@ -26,10 +26,6 @@
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -58,6 +54,8 @@
   services.displayManager.gdm.wayland = true;
   services.gnome.gnome-keyring.enable = true;
 
+  #services.displayManager.sddm.enable = true;
+  #services.displayManager.sddm.wayland.enable = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
