@@ -61,6 +61,12 @@
       # 如果某些程序需要禁用主题
       # firefox.enable = false;
     };
+
+    cursor = {
+      package = pkgs.catppuccin-cursors.mochaMauve;
+      name = "catppuccin-mocha-mauve-cursors";
+      size = 24;
+    };
   };
   
   # 确保 base16-schemes 包可用

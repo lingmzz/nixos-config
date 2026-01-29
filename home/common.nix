@@ -15,11 +15,11 @@
     imv
     mpv
     swww
+    cava
 
     zoxide
     bat
     
-    fuzzel
     libnotify         # 通知库
 
     git
@@ -30,7 +30,11 @@
   programs.fastfetch = {
     enable = true;
   };
-  
+
+  programs.fuzzel = {
+    enable = true;
+  };
+
   # 启用 XDG 目录规范
   xdg.enable = true;
   

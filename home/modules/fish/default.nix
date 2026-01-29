@@ -5,11 +5,10 @@
     enable = true;
     
     # 交互式 Shell 配置
-    interactiveShellInit = ''
-      # 启动工具
+    interactiveShellInit =
+    ''# 启动工具
       ${pkgs.zoxide}/bin/zoxide init fish | source
-      ${pkgs.fzf}/bin/fzf --fish | source
-      
+      ${pkgs.fzf}/bin/fzf --fish | source 
       # 别名
       alias ls 'eza --icons'
       alias ll 'eza -l --icons'

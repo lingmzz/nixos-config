@@ -30,9 +30,8 @@ input {
 }
 
 cursor {
-    xcursor-theme "breeze_cursors"
-    xcursor-size 30
-    hide-after-inactive-ms 15000
+    //xcursor-theme "Catppuccin-Mocha-Dark-Cursors"
+    //xcursor-size 24
 }
 
 output "HDMI-A-1" {
@@ -44,7 +43,7 @@ output "HDMI-A-1" {
 
 layout {
     gaps 1
-    // background-color "transparent"
+    background-color "transparent"
     center-focused-column "never"
 
     preset-column-widths {
@@ -63,8 +62,8 @@ layout {
 
     border {
         width 0
-        active-color "#a7c080"
-        inactive-color "#d3c6aa"
+        active-color "#8FBCBB"
+        inactive-color "#81A1C1"
 
    }
 

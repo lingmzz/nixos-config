@@ -6,7 +6,7 @@
     enableFishIntegration = true;
     
     settings = {
-      manager = {
+      mgr = {
         show_hidden = false;
         sort_by = "alphabetical";
         sort_dir_first = true;
@@ -15,13 +15,13 @@
       
       opener = {
         edit = [
-          { exec = "$EDITOR \"$@\""; block = true; }
+          { run = "$EDITOR \"$@\""; block = true; }
         ];
         play = [
-          { exec = "mpv \"$@\""; orphan = true; }
+          { run = "mpv \"$@\""; orphan = true; }
         ];
         open = [
-          { exec = "xdg-open \"$@\""; desc = "Open"; }
+          { run = "xdg-open \"$@\""; desc = "Open"; }
         ];
       };
     };
