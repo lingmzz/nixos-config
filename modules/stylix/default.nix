@@ -6,8 +6,11 @@
     enable = true;
     autoEnable = true;  # 自动为支持的应用启用主题
     
-    # Catppuccin Mocha 主题方案
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    # Catppuccin主题方案
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     
     # 壁纸
     # image = ./wallpaper.png;
@@ -49,17 +52,11 @@
       popups = 0.9;
     };
     
-    # 光标主题
-    cursor = {
-      package = pkgs.catppuccin-cursors.mochaDark;
-      name = "Catppuccin-Mocha-Dark-Cursors";
-      size = 24;
-    };
-    
     # 针对特定目标的覆盖（可选）
     targets = {
       # GDM（登录管理器）
       gnome.enable = true;  # GDM 使用 GNOME 目标
+      qt.enable = false;
       
       # 如果某些程序需要禁用主题
       # firefox.enable = false;

@@ -23,6 +23,8 @@
     xwayland-satellite
     wget
     curl
+
+    wlogout
   ];
 
   # Sudo 权限配置
@@ -59,6 +61,15 @@
       PasswordAuthentication = true;  # 如使用密钥登录，改为 false
     };
   };
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+  ];
 
   nixpkgs.config.allowUnfree = true;
 }

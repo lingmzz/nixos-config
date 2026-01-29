@@ -1,73 +1,138 @@
-{ config, pkgs, ... }:
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    waybar
+    pavucontrol
+    networkmanagerapplet
+  ];
 
-{
   programs.waybar = {
     enable = true;
-    systemd.enable = false;  # Niri 手动启动
-    
-    # Stylix 会自动生成样式，但如果您想自定义：
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
-        
-        modules-left = [ "niri/workspaces" "niri/window" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "network" "battery" "pulseaudio" "tray" ];
-        
-        "niri/workspaces" = {
-          format = "{name}";
-          on-click = "activate";
+        height = 32;
+
+        # 布局模块
+        modules-left = ["group/container"];
+        modules-center = ["cava"];
+        modules-right = ["tray" "group/main" "clock"];
+
+        # 左侧 group
+        "group/container" = {
+          orientation = "inherit";
+          modules = ["custom/logo" "niri/workspaces"];
         };
-        
-        "niri/window" = {
-          max-length = 50;
+
+        # 右侧 group
+        "group/main" = {
+          orientation = "inherit";
+          modules = ["pulseaudio" "memory" "cpu"];
         };
-        
-        clock = {
-          format = "{:%Y-%m-%d %H:%M}";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>";
-        };
-        
-        battery = {
-          states = {
-            warning = 30;
-            critical = 15;
+
+        "cava" = {
+          framerate = 30;
+          autosens = 1;
+          bars = 14;
+          lower_cutoff_freq = 50;
+          higher_cutoff_freq = 10000;
+          hide_on_silence = true;
+          method = "pulse";
+          source = "auto";
+          stereo = false;
+          bar_delimiter = 0;
+          monstercat = false;
+          waves = false;
+          noise_reduction = 0.6;
+          input_delay = 4;
+          sleep_timer = 1;
+          format-icons = ["▁" "▂" "▂▃" "▄" "▅" "▆" "▇█" "█"];
+          # format-icons = [ " " "▁" "▃" "▄" "▅" "▆" "▇" "█" ];
+          actions = {
+            on-click-right = "mode";
           };
-          format = "{icon} {capacity}%";
-          format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
-        
-        network = {
-          format-wifi = "󰤨 {essid}";
-          format-ethernet = "󰈀 {ipaddr}";
-          format-disconnected = "⚠ Disconnected";
+
+        # 各模块配置
+        "custom/logo" = {
+          format = "";
+          tooltip = false;
+          on-scroll-up = "";
+          on-scroll-down = "";
         };
-        
+
+        "niri/workspaces" = {
+          active-only = false;
+          all-outputs = false;
+          show-special = true;
+          special-visible-only = false;
+          disable-scroll = true;
+          warp-on-scroll = false;
+          format = "{name}";
+          persistent-workspaces = {"*" = 5;};
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
+        };
+
+        cpu = {
+          format = "{icon} {usage}%";
+          interval = 10;
+          tooltip = false;
+          format-icons = [""];
+          on-scroll-up = "";
+          on-scroll-down = "";
+        };
+
+        memory = {
+          interval = 10;
+	  format = "󰘚 {percentage}%";
+	  format-warning = "󰀧 {percentage}%";
+	  format-critical = "󰀧 {percentage}%";
+          states = {"warning" = 75; "critical" = 90;};
+          tooltip-format = "Memory Used: {used:0.0f}/{total:0.0f} GB";
+          on-scroll-up = "";
+          on-scroll-down = "";
+        };
+
+        tray = {
+          icon-size = 20;
+          spacing = 10;
+        };
+
+        bluetooth = {
+          format = "󰂯 {status}";
+          format-connected = " {device_alias}";
+          on-scroll-up = "";
+          on-scroll-down = "";
+          on-click = "blueman-manager";
+          on-click-right = "rfkill toggle bluetooth";
+          tooltip = true;
+        };
+
+        clock = {
+          timezone = "Asia/Shanghai";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "{:%Y-%m-%d}";
+        };
+
         pulseaudio = {
           format = "{icon} {volume}%";
-          format-muted = "󰖁 Muted";
+          format-muted = "{format_source}";
+          format-source = "󰕿";
+          format-source-muted = "";
           format-icons = {
+            headphone = "";
             default = ["󰕿" "󰖀" "󰕾"];
           };
-          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-        };
-        
-        tray = {
-          spacing = 10;
+          on-click-right = "pavucontrol";
+          on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+          on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
       };
     };
-    
-    # CSS 样式：留空让 Stylix 自动生成，或覆盖特定部分
-    # stylix.targets.waybar.enable = false;  # 如要完全自定义样式
-    style = ''
-      /* Stylix 会自动生成基础样式，这里添加微调 */
-      #waybar {
-        font-family: "${config.stylix.fonts.sansSerif.name}";
-        font-size: ${toString config.stylix.fonts.sizes.desktop}px;
-      }
-    '';
   };
+
+  xdg.configFile.".config/waybar/style.css".source = ./style.css;
+
 }

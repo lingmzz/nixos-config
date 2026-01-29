@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # 共享配置
   home.packages = with pkgs; [
     fd
     eza
@@ -9,17 +8,23 @@
     fzf
     btop
     tree
+
+    google-chrome
     obsidian
 
     imv
     mpv
+    swww
 
     zoxide
+    bat
     
     fuzzel
     libnotify         # 通知库
 
     git
+
+    wechat
   ];
 
   programs.fastfetch = {

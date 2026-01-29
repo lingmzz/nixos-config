@@ -51,14 +51,10 @@
       progressbar_look = "━╸";
       progressbar_elapsed_color = "blue";
       progressbar_color = "black";
+
+      # 歌曲列表显示格式：歌名、歌手、专辑、时间
+      song_columns_list_format = "(40)[yellow]{t} (25)[green]{a} (25)[magenta]{b} (8)[blue]{l}";
+      song_status_format = "▶";
     };
-    bindings = [
-      { key = "j"; command = "scroll_down"; }
-      { key = "k"; command = "scroll_up"; }
-      { key = "h"; command = "previous_column"; }
-      { key = "l"; command = "next_column"; }
-      { key = "g"; command = "page 1"; }
-      { key = "G"; command = "page end"; }
-    ];
   };
 }

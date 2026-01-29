@@ -7,7 +7,7 @@
     wayland = true;  # 使用 Wayland 会话
   };
   
-  services.desktopManager.gnome.enable = true;  # 需要 GNOME 基础支持 GDM
+  services.desktopManager.gnome.enable = false;  # 需要 GNOME 基础支持 GDM
   
   # Stylix 会自动处理 GDM 主题（通过 targets.gnome）
 }
