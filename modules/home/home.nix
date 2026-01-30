@@ -8,15 +8,15 @@
   imports = [
     ./dev.nix
     ./common.nix
-    ./modules/niri
-    ./modules/waybar
-    ./modules/mako
-    ./modules/kitty
-    ./modules/fish
-    ./modules/vim
-    ./modules/yazi
-    ./modules/ncmpcpp
-    ./modules/fcitx5
+    ./niri
+    ./waybar
+    ./mako
+    ./kitty
+    ./fish
+    ./vim
+    ./yazi
+    ./ncmpcpp
+    ./fcitx5
   ];
   
   # Home Manager 自动管理自身

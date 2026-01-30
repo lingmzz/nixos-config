@@ -16,7 +16,7 @@
         # 布局模块
         modules-left = ["group/container"];
         modules-center = ["cava"];
-        modules-right = ["tray" "group/main" "clock"];
+        modules-right = ["tray" "group/main" "clock" "custom/power"];
 
         # 左侧 group
         "group/container" = {
@@ -121,6 +121,11 @@
           on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+        "custom/power" = {
+          format = "⏻";
+          on-click = "wlogout";
+          tooltip = false;
         };
       };
     };
@@ -376,6 +381,15 @@
     #custom-wf-recorder:hover,
     #custom-powerprofile:hover {
       background: rgba(143, 188, 187, 0.3);
+    }
+    #custom-power {
+      color: #f38ba8;  /* 红色 */
+      padding: 0 10px;
+      font-size: 16px;
+    }
+
+    #custom-power:hover {
+      color: #fab387;  /* 悬停颜色 */
     }
     '';
   };

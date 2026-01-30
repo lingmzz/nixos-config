@@ -60,7 +60,7 @@
           home-manager.extraSpecialArgs = { inherit inputs username; };
           home-manager.users.${username} = {
             imports = [
-              ./home/home.nix
+              ./modules/home/home.nix
             ];
           };
         }

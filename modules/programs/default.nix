@@ -1,6 +1,6 @@
 {
   imports = [
-    ./gdm.nix
+    ./tuigreet.nix
     ./pipewire.nix
   ];
 }
