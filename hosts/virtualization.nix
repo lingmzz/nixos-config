@@ -8,4 +8,6 @@
     ];
   };
   programs.virt-manager.enable = true;
+
+  virtualisation.docker.enable = true;
 }

@@ -105,8 +105,8 @@ layer-rule {
 
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authertication-agent-1"
 spawn-at-startup "mako"
-spawn-at-startup "waybar"
-spawn-sh-at-startup "swww-daemon && swww img ~/.config/wallpaper/wallhaven-3q3wqv_2560x1440.png"
+spawn-at-startup "noctalia-shell"
+//spawn-sh-at-startup "swww-daemon && swww img ~/.config/wallpaper/wallhaven-3q3wqv_2560x1440.png"
 
 hotkey-overlay {
     skip-at-startup

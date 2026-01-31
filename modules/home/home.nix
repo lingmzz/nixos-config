@@ -9,7 +9,7 @@
     ./dev.nix
     ./common.nix
     ./niri
-    ./waybar
+    #./waybar
     ./mako
     ./kitty
     ./fish
@@ -22,4 +22,4 @@
   # Home Manager 自动管理自身
   programs.home-manager.enable = true;
 
-}
+ }

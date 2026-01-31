@@ -14,24 +14,19 @@
 
     imv
     mpv
-    swww
     cava
 
     zoxide
     bat
     
-    libnotify         # 通知库
-
     git
 
     wechat
   ];
-
+  
+  services.cliphist.enable = true;
+  
   programs.fastfetch = {
-    enable = true;
-  };
-
-  programs.fuzzel = {
     enable = true;
   };
 

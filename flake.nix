@@ -18,6 +18,15 @@
       url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    #quickshell = {
+    #  url = "git+https://github.com/outfoxxed/quickshell?rev=1e4d804e7f3fa7465811030e8da2bf10d544426a";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -29,11 +38,11 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
   };
-
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    noctalia,
     stylix,
     #niri,
     ...
@@ -49,7 +58,7 @@
       modules = [
         # Stylix NixOS 模块
         stylix.nixosModules.stylix
-
+        noctalia.nixosModules.default
         home-manager.nixosModules.home-manager
 
         #niri.nixosModules.niri

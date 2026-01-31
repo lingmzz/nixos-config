@@ -24,9 +24,11 @@
     wget
     curl
 
-    wlogout
+    #todesk
   ];
 
+  #services.todesk.enable = true;
+  
   # Sudo 权限配置
   security.sudo = {
     enable = true;
