@@ -68,6 +68,27 @@
         "type": "github"
       }
     },
+    "dms": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1769923328,
+        "narHash": "sha256-c7uA60CUhmvOwR1kQxMRqThGJz+6lgYX8OXccBTWghc=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "3d80a9dd0f473f4dcb6b48c10978128a4c76bcf8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -177,26 +198,6 @@
         "type": "github"
       }
     },
-    "noctalia": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1769852414,
-        "narHash": "sha256-3XwpXpG9vvAibLOKj/h5LV9oRhD7Rua0uJDe1UBf/ns=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "rev": "19f016e7606f21b7109f44d93cc5d6f24f47f9ca",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "type": "github"
-      }
-    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -225,6 +226,28 @@
     "quickshell": {
       "inputs": {
         "nixpkgs": [
+          "dms",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766725085,
+        "narHash": "sha256-O2aMFdDUYJazFrlwL7aSIHbUSEm3ADVZjmf41uBJfHs=",
+        "ref": "refs/heads/master",
+        "rev": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+        "revCount": 715,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/quickshell/quickshell"
+      },
+      "original": {
+        "rev": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+        "type": "git",
+        "url": "https://git.outfoxxed.me/quickshell/quickshell"
+      }
+    },
+    "quickshell_2": {
+      "inputs": {
+        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -235,20 +258,19 @@
         "rev": "1e4d804e7f3fa7465811030e8da2bf10d544426a",
         "revCount": 732,
         "type": "git",
-        "url": "https://github.com/outfoxxed/quickshell"
+        "url": "https://git.outfoxxed.me/quickshell/quickshell"
       },
       "original": {
-        "rev": "1e4d804e7f3fa7465811030e8da2bf10d544426a",
         "type": "git",
-        "url": "https://github.com/outfoxxed/quickshell"
+        "url": "https://git.outfoxxed.me/quickshell/quickshell"
       }
     },
     "root": {
       "inputs": {
+        "dms": "dms",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "noctalia": "noctalia",
-        "quickshell": "quickshell",
+        "quickshell": "quickshell_2",
         "stylix": "stylix"
       }
     },

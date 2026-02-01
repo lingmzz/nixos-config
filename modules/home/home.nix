@@ -10,7 +10,7 @@
     ./common.nix
     ./niri
     #./waybar
-    ./mako
+    #./mako
     ./kitty
     ./fish
     ./vim
@@ -21,5 +21,19 @@
   
   # Home Manager 自动管理自身
   programs.home-manager.enable = true;
+
+  programs.dms-shell = {
+    enable = true;
+    
+    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+    
+    systemd.enable = false;
+
+    enableSystemMonitoring = true;
+    enableClipboard = true;
+    enableDynamicTheming = true;
+    enableAudioWavelength = true;
+    enableVPN = true;
+  };
 
  }

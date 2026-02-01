@@ -1,6 +1,6 @@
 {
   imports = [
-    ./tuigreet.nix
+    #./tuigreet.nix
     ./pipewire.nix
   ];
 }
