@@ -19,35 +19,10 @@
     shell = pkgs.fish;
   };
 
-  environment.systemPackages = with pkgs; [
-    xwayland-satellite
-    wget
-    curl
-
-    #todesk
-  ];
-
-  #services.todesk.enable = true;
-  
   # Sudo 权限配置
   security.sudo = {
     enable = true;
     wheelNeedsPassword = true;      # true = 需要密码（安全）；false = 免密（风险）
-  };
-
-  programs.fish.enable = true;
-  
-  programs.bash.enable = true;
-
-  programs.nix-ld.enable = true;
-
-  programs.firefox.enable = true;
-
-  programs.npm = {
-    enable = true;
-    npmrc = ''
-      prefix=$HOME/.npm-global;
-    '';
   };
 
   # 全局环境变量
@@ -65,15 +40,4 @@
       PasswordAuthentication = true;  # 如使用密钥登录，改为 false
     };
   };
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-  ];
-
-  nixpkgs.config.allowUnfree = true;
 }
