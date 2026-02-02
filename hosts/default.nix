@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ./virtualization.nix
     ../modules/core
-    ../modules/stylix      # 主题系统级配置
     ../modules/programs
   ];
 
@@ -16,11 +15,24 @@
   programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
-
-    brightnessctl   # 亮度控制
     cava            # 音频可视化
-    libnotify       # 通知
-    grimblast       # 截图工具
+    #libnotify       # 通知
   ];
 
+  programs.dms-shell = {
+    enable = true;
+    
+    # 功能开关
+    systemd.enable = true;              # 自动启动服务
+    enableSystemMonitoring = true;      # 系统监控 (CPU/RAM/GPU)
+    enableVPN = true;                   # VPN 管理
+    enableDynamicTheming = true;        # 动态主题 (基于壁纸)
+    enableAudioWavelength = true;       # 音频可视化
+    enableCalendarEvents = true;        # 日历集成
+  };
+
+  services.displayManager.dms-greeter = {
+    enable = true;
+    compositor.name = "niri";  # Or "hyprland" or "sway"
+  };
  }
