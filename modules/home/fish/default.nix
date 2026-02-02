@@ -35,6 +35,4 @@
     };
   };
   
-  # Stylix 配置 Fish 颜色
-  #stylix.targets.fish.enable = true;
 }

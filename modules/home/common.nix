@@ -24,8 +24,6 @@
     wechat
   ];
   
-  services.cliphist.enable = true;
-  
   programs.fastfetch = {
     enable = true;
   };

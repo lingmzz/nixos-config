@@ -30,6 +30,4 @@
     };
   };
   
-  # Stylix 会自动配置 Kitty 颜色
-  stylix.targets.kitty.enable = true;
 }

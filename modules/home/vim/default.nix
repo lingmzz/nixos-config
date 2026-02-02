@@ -37,7 +37,4 @@
       vim-airline-themes
     ];
   };
-  
-  # 启用 Stylix 的 Vim 支持
-  stylix.targets.vim.enable = true;
 }

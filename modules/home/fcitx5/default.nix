@@ -48,7 +48,5 @@
             accept: "Shift+Return"
             commit_raw_input: true
   '';
-
-  stylix.targets.fcitx5.enable = true;
 }
 

@@ -12,20 +12,10 @@
     warn-dirty = false;
   };
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      url = "github:nix-community/stylix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,7 +28,6 @@
     self,
     nixpkgs,
     home-manager,
-    stylix,
     dms,
     ...
   }@inputs: 
@@ -51,9 +40,6 @@
       inherit system;
       specialArgs = { inherit inputs username; };
       modules = [
-        # Stylix NixOS 模块
-        stylix.nixosModules.stylix
-
         home-manager.nixosModules.home-manager
 
         {
@@ -63,7 +49,6 @@
           home-manager.users.${username} = {
             imports = [
               ./modules/home/home.nix
-              dms.nixosModules.default
             ];
           };
         }
