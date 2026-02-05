@@ -48,5 +48,14 @@
             accept: "Shift+Return"
             commit_raw_input: true
   '';
+
+  catppuccin = {
+    fcitx5 = {
+      enable = true;
+      flavor = "mocha";
+      accent = "mauve";
+      enableRounded = true;
+    };
+  };
 }
 

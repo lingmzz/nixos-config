@@ -1,6 +1,9 @@
 environment {
     QT_QPA_PLATFORM "wayland"
     SDL_VIDEODRIVER "wayland"
+    GTK_IM_MODULE "fcitx"
+    QT_IM_MODULE "fcitx"
+    XMODIFIERS "@im=fcitx"
 }
 
 input {
@@ -34,7 +37,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 4
+    gaps 0
     background-color "transparent"
     center-focused-column "never"
 
@@ -46,10 +49,11 @@ layout {
 
     default-column-width { proportion 0.5; }
     focus-ring {
-        width 1
-        active-color "#f0f0f0cc"
-	      urgent-color "#ffb4ab"
-        active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+        off
+        //width 1
+        //active-color "#f0f0f0cc"
+	      //urgent-color "#ffb4ab"
+        //active-gradient from="#80c8ff" to="#c7ff7f" angle=45
    }
 
     border {
@@ -60,7 +64,7 @@ layout {
    }
 
     shadow {
-        on
+        off
         softness 20
 
         spread 2
@@ -105,7 +109,7 @@ animations {
 window-rule {
     // match is-active=false
     opacity 0.8
-    geometry-corner-radius 8
+    geometry-corner-radius 0
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -151,11 +155,10 @@ window-rule {
 
 binds {
     Mod+F1 { spawn-sh "pkill fcitx5 || fcitx5"; }
-    Mod+Space hotkey-overlay-title="Application Launcher" { spawn-sh "pkill fuzzel || fuzzel"; }
+    Mod+Space hotkey-overlay-title="Application Launcher" { spawn-sh "dms ipc call spotlight toggle"; }
     Mod+B { spawn-sh "google-chrome-stable --ozone-platform=wayland"; }
     Mod+N { spawn-sh "kitty -e yazi"; }
 
-    Mod+Shift+W hotkey-overlay-title="swww" {spawn "~/.config/wallpaper/script/swww-rofi.sh"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty" "-e" "fish"; }

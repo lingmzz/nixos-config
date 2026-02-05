@@ -23,12 +23,18 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     self,
     nixpkgs,
     home-manager,
     dms,
+    catppuccin,
     ...
   }@inputs: 
   let 
@@ -41,6 +47,8 @@
       specialArgs = { inherit inputs username; };
       modules = [
         home-manager.nixosModules.home-manager
+        
+        catppuccin.nixosModules.catppuccin
 
         {
           home-manager.useGlobalPkgs = true;
@@ -48,6 +56,7 @@
           home-manager.extraSpecialArgs = { inherit inputs username; };
           home-manager.users.${username} = {
             imports = [
+              catppuccin.homeModules.catppuccin
               ./modules/home/home.nix
             ];
           };

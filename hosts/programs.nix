@@ -23,11 +23,27 @@
     enableDynamicTheming = true;
     enableAudioWavelength = true;
     enableCalendarEvents = true;
+
+    plugins = {
+      DockerManager = {
+        src = pkgs.fetchFromGitHub {
+          owner = "LuckShiba";
+          repo = "DmsDockerManager";
+          rev = "v1.2.0";
+          sha256 = "sha256-VoJCaygWnKpv0s0pqTOmzZnPM922qPDMHk4EPcgVnaU=";
+        };
+      };
+    };
   };
 
   services.displayManager.dms-greeter = {
     enable = true;
-    compositor.name = "niri";
+    compositor = {
+      name = "niri";
+      customConfig = ''
+      '';
+    };
+    configHome = "/home/min";
   };
 
   programs.fish.enable = true;
@@ -44,15 +60,6 @@
       prefix=$HOME/.npm-global;
     '';
   };
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-  ];
 
   nixpkgs.config.allowUnfree = true;
 }

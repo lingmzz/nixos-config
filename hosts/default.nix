@@ -10,6 +10,7 @@
     ./programs.nix
     ./fonts.nix
     ./pipewire.nix
+    ./wine.nix
   ];
 
   # 系统级基础配置

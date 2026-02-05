@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -26,6 +26,16 @@
   
   programs.fastfetch = {
     enable = true;
+  };
+
+  programs.vscode.enable = true;
+
+  catppuccin = {
+    cursors = {
+      enable = true;
+      flavor = "mocha";
+      accent = "pink";
+    };
   };
 
   # 启用 XDG 目录规范
