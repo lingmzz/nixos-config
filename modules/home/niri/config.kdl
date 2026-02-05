@@ -137,12 +137,13 @@ window-rule {
     match app-id="Rustdesk"
     match app-id="wemeetapp"
     match app-id="wechat"
+    match app-id="^libreoffice.*"
     opacity 1.0
     open-maximized true
 }
 
 window-rule {
-    match app-id="(unset)"
+    match app-id="org.pwmt.zathura"
     opacity 1.0
 }
 

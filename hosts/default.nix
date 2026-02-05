@@ -11,6 +11,7 @@
     ./fonts.nix
     ./pipewire.nix
     ./wine.nix
+    ./flatpak.nix
   ];
 
   # 系统级基础配置

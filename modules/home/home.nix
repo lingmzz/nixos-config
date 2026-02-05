@@ -20,4 +20,8 @@
   # Home Manager 自动管理自身
   programs.home-manager.enable = true;
 
+  home.sessionPath = [
+    "$HOME/.npm-global/bin"
+  ];
+
  }

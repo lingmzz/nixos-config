@@ -22,6 +22,9 @@
     git
 
     wechat
+
+    zathura
+    libreoffice
   ];
   
   programs.fastfetch = {
@@ -35,6 +38,27 @@
       enable = true;
       flavor = "mocha";
       accent = "pink";
+    };
+  };
+
+  programs.thunderbird = {
+    enable = true;
+
+    # 全局设置（应用到所有 profiles）
+    settings = {
+      "mail.server.default.max_cached_connections" = 5;
+      "mail.imap.use_status_for_biff" = true;
+    };
+
+    # 定义配置文件
+    profiles = {
+      default = {
+        isDefault = true;
+        settings = {
+          # 特定于该配置文件的设置
+          "mail.server.default.max_cached_connections" = 10;
+        };
+      };
     };
   };
 
@@ -78,7 +102,7 @@
       "video/avi" = "mpv.desktop";
       "video/mpeg" = "mpv.desktop";
       
-      "application/pdf" = "firefox.desktop";
+      "application/pdf" = "org.pwmt.zathura.desktop";
       
       # 音频文件（MPD/ncmpcpp 或 MPV）
       "audio/mpeg" = "mpv.desktop";
